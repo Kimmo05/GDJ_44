@@ -4,7 +4,16 @@
 <head>
 	<title>Home</title>
 </head>
-<body>
+
+<body >
+<div id="page-wrapper">
+<%@ include file="./header.jsp" %>
+
+
+
+
+
+</div>
 <h1>
 	Hello world!  
 </h1>
