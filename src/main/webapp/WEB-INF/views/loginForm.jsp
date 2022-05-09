@@ -16,7 +16,7 @@
 
 	<!-- Form -->
 							<section>
-								<h3>Form</h3>
+								<h2 style="font-weight: bold;">LOG - IN</h2>
 								<form method="post" action="#">
 									<div class="row gtr-uniform gtr-50">
 										<div class="col-6 col-12">

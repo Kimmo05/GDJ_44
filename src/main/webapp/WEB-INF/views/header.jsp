@@ -12,10 +12,10 @@
 <body>
  	<!-- Header -->
 				<header id="header">
-					<h1 id="logo"><a href="index.html">Landed</a></h1>
+					<h1 id="logo"><a href="./main.do">Landed</a></h1>
 					<nav id="nav">
 						<ul>
-							<li><a href="index.html">Home</a></li>
+							<li><a href="./main.do">Home</a></li>
 							<li>
 								<a href="#">Layouts</a>
 								<ul>
