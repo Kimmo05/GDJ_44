@@ -37,14 +37,14 @@
 		</dependency>
 		
 		
-		<!-- lombok -->
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>1.18.12</version>
-			<scope>provided</scope>
-		</dependency>
-		
+
+				<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+			<dependency>
+   				 <groupId>org.projectlombok</groupId>
+    			<artifactId>lombok</artifactId>
+    			<version>1.18.22</version>
+		  		  <scope>provided</scope>
+			</dependency>
 				
 		<!-- AspectJ -->
 		<dependency>
@@ -159,7 +159,22 @@
 			<artifactId>commons-lang3</artifactId>
 			<version>3.9</version>
 		</dependency>
-		
+		<!--  SpringFramework 비동기식 처리 방법의 반환타입을 자동으로 JSON 으로 처리해주는 것 -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>2.13.2.2</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-core</artifactId>
+		    <version>2.13.2</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.codehaus.jackson</groupId>
+		    <artifactId>jackson-core-asl</artifactId>
+		    <version>1.9.13</version>
+		</dependency>
 	
 	
 		<!-- Test -->

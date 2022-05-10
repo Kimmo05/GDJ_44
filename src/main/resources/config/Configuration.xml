@@ -3,10 +3,8 @@
 <configuration>
 
 	<typeAliases>
-		<typeAlias type=""/>
+	 	<typeAlias type="com.min.edu.vo.MemberVo" alias="MemberVo"/>
 	</typeAliases>
-	
-	
 	
 	
 	<mappers>
