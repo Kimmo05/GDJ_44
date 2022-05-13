@@ -28,7 +28,7 @@ import com.min.edu.vo.MemberVo;
  * Handles requests for the application home page.
  */
 @Controller
-@SessionAttributes("mem")
+//@SessionAttributes("mem")
 public class MemberController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
@@ -38,27 +38,27 @@ public class MemberController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/main.do", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
-		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
-		return "main";
-	}
-	
-	@RequestMapping(value = "/loginForm.do", method = RequestMethod.GET)
-	public String LoginForm() {
-		logger.info("Welcome LoginForm! 로그인 화면입니다.");
-		
-		
-		return "loginForm";
-	}
+//	@RequestMapping(value = "/main.do", method = RequestMethod.GET)
+//	public String home(Locale locale, Model model) {
+//		logger.info("Welcome home! The client locale is {}.", locale);
+//		
+//		Date date = new Date();
+//		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+//		
+//		String formattedDate = dateFormat.format(date);
+//		
+//		model.addAttribute("serverTime", formattedDate );
+//		
+//		return "main";
+//	}
+//	
+//	@RequestMapping(value = "/loginForm.do", method = RequestMethod.GET)
+//	public String LoginForm() {
+//		logger.info("Welcome LoginForm! 로그인 화면입니다.");
+//		
+//		
+//		return "loginForm";
+//	}
 	
 	
 	//TODO 003 로그인 화면에서 비동기식 로그인 정보 확인 : Map 반환
@@ -89,14 +89,14 @@ public class MemberController {
 			return "redirect:/main.do";
 		}
 		
-		//TODO 006 로그아웃
-		@RequestMapping(value = "/logout.do", method = RequestMethod.GET)
-		public String logout( SessionStatus sessionStatus){
-			logger.info("Welcome! Member_Controller login 로그아웃 전 : {}" );
-			
-			sessionStatus.setComplete();
-			logger.info("Welcome! Member_Controller login 로그아웃 후 : {}");
-			return "redirect:/loginForm.do";
-		}	
+//		//TODO 006 로그아웃
+//		@RequestMapping(value = "/logout.do", method = RequestMethod.GET)
+//		public String logout( SessionStatus sessionStatus){
+//			logger.info("Welcome! Member_Controller login 로그아웃 전 : {}" );
+//			
+//			sessionStatus.setComplete();
+//			logger.info("Welcome! Member_Controller login 로그아웃 후 : {}");
+//			return "redirect:/loginForm.do";
+//		}	
 	
 }
