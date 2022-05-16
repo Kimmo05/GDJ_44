@@ -28,7 +28,7 @@ import com.min.edu.vo.MemberVo;
  * Handles requests for the application home page.
  */
 @Controller
-//@SessionAttributes("mem")
+@SessionAttributes("mem")
 public class MemberController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);

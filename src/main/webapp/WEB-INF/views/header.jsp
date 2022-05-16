@@ -21,6 +21,7 @@
 					<nav id="nav">
 						<ul>
 							<li><a href="./main.do">Home</a></li>
+							<li><a href="./boardList.do">게시판</a></li>
 							<li>
 								<a href="#">Layouts</a>
 								<ul>

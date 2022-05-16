@@ -4,10 +4,13 @@
 
 	<typeAliases>
 	 	<typeAlias type="com.min.edu.vo.MemberVo" alias="MemberVo"/>
+	 	<typeAlias type="com.min.edu.vo.BoardVo" alias="BoardVo"/>
+	 	<typeAlias type="com.min.edu.vo.RowNumVo" alias="RowNumVo"/>
 	</typeAliases>
 	
 	
 	<mappers>
 		<mapper resource="sqls/DemoMember_Statement.xml"/>
+		<mapper resource="sqls/DemoBoard_Statement.xml"/>
 	</mappers>
 </configuration>
