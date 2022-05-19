@@ -12,13 +12,14 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class MemberVo {
-
-	private String id ;
-	private String pw ;
-	private String name ;
-	private String email ;
-	private String phone ;
-	private String auth  ;
+	
+	private String id;
+	private String pw;
+	private String name;
+	private String email;
+	private String phone;
+	private String auth;
 	private String delflag;
 	private String regdate;
+
 }

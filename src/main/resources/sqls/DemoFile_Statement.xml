@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.min.edu.model.mapper.FileDaoImpl">
+
+<!-- 3-1)게시글 새로 등록 시 첨부파일 추가 -->
+<insert id="insertBoardFile" parameterType="hashMap">
+INSERT INTO DEMOFILE
+(FILE_SEQ, DEMOBOARD_SEQ, ORIGINAL_FILE_NAME, STORED_FILE_NAME, FILE_PATH, FILE_TYPE, REGDATE)
+VALUES(DEMOFILE_FILE_SEQ.NEXTVAL , #{seq}, #{original_file_name}, #{stored_file_name}, #{file_path}, #{file_type}, SYSDATE)
+</insert>
+
+
+
+
+</mapper>

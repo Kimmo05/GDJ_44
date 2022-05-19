@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.min.edu.model.mapper.MemberDaoImpl">
-
-<!-- 로그인 -->
+<!-- 1) 로그인 -->
 <select id="loginMember" parameterType="java.util.Map" resultType="MemberVo">
-	SELECT ID,NAME,EMAIL,PHONE,AUTH,REGDATE FROM DEMOMEMBER WHERE ID=#{id} AND PW=#{pw} AND DELFLAG ='N'
+	SELECT ID, NAME, EMAIL, PHONE, AUTH, REGDATE FROM DEMOMEMBER WHERE ID=#{id} AND PW=#{pw} AND DELFLAG='N'
 </select>
+
 
 </mapper>

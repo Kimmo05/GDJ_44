@@ -12,15 +12,14 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Service
-public class MemberServiceImpl implements IMemberService {
-
+public class MemberServiceImpl implements IMemberService{
 	
 	@Autowired
 	private IMemberDao dao;
 	
 	@Override
 	public MemberVo loginMember(Map<String, Object> map) {
-		log.info("MemberVo LoginMember");
+		log.info("MemberVo loginMember");
 		return dao.loginMember(map);
 	}
 

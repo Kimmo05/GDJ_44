@@ -1,34 +1,44 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page session="false" %>
 <html>
 <head>
-	<title>Home</title>
+	<title>MainPage</title>
 </head>
-
+<body>
+<!-- page-wrapper Start-->
+    <div class="page-wrapper" id="pageWrapper">
+      <!-- Page Body Start-->
+      <div class="page-body-wrapper horizontal-menu">
+		<%@ include file="./header.jsp"  %>
+   
+     
+        <div class="page-body">
+          <div class="container-fluid">
+            <div class="page-header">
+              <div class="row">
+                <div class="col-sm-6">
+                  <h3>Layout Light</h3>
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="../ltr/index.html">Home</a></li>
+                    <li class="breadcrumb-item">Starter Kit</li>
+                    <li class="breadcrumb-item">Color Version</li>
+                    <li class="breadcrumb-item active">Layout Light</li>
+                  </ol>
+                </div>
+                <div class="col-sm-6">
+   
+               
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
  
-<body >
-<div id="page-wrapper">
-<%@ include file="./header.jsp" %>
-
-
-
-
-
-</div>
-<h1>
-	Hello world!  
-	<c:if test="${result != null}">
-<h2> 네이버 아이디 로그인 성공하셨습니다!! </h2>
-<h3>'${result}' 님 환영합니다! </h3>
-${sessionId} <br>
-
-${sessionId.name }
-<h3><a href="./logout.do">로그아웃</a></h3>
-</c:if>
-
-</h1>
-
-<P>  The time on the server is ${serverTime}. </P>
+    
+ 
+   
+		<%@ include file="./footer.jsp"  %>
+		</div>
+		</div>
 </body>
 </html>

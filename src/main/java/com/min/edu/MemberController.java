@@ -6,8 +6,6 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-import javax.servlet.http.HttpSession;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,84 +17,81 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.bind.support.SessionStatus;
 
 import com.min.edu.model.service.IMemberService;
 import com.min.edu.vo.MemberVo;
 
-/**
- * Handles requests for the application home page.
- */
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Controller
 @SessionAttributes("mem")
 public class MemberController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
-	
 	@Autowired
 	private IMemberService iService;
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
-//	@RequestMapping(value = "/main.do", method = RequestMethod.GET)
-//	public String home(Locale locale, Model model) {
-//		logger.info("Welcome home! The client locale is {}.", locale);
-//		
-//		Date date = new Date();
-//		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-//		
-//		String formattedDate = dateFormat.format(date);
-//		
-//		model.addAttribute("serverTime", formattedDate );
-//		
-//		return "main";
-//	}
-//	
-//	@RequestMapping(value = "/loginForm.do", method = RequestMethod.GET)
-//	public String LoginForm() {
-//		logger.info("Welcome LoginForm! 로그인 화면입니다.");
-//		
-//		
-//		return "loginForm";
-//	}
 	
+	@RequestMapping(value = "/main.do", method = RequestMethod.GET)
+	public String home(Locale locale, Model model) {
+		log.info("Welcome home! The client locale is {}.", locale);
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		String formattedDate = dateFormat.format(date);
+		model.addAttribute("serverTime", formattedDate );
+		return "main";
+	}
 	
-	//TODO 003 로그인 화면에서 비동기식 로그인 정보 확인 : Map 반환
-		// Jackson databind 이 자동으로 Map 의 데이터를 JSON 의 형태로 변경하여 전송함
-		@RequestMapping(value = "/loginCheckMap.do", method = RequestMethod.POST)
-		public @ResponseBody Map<String, String> loginCheckMap(@RequestParam Map<String, Object> map){
-			Map<String, String> rMap = new HashMap<String, String>();
-			logger.info("Welcome! Member_Controller loginCheckMap : {}", map);
-			MemberVo mVo = iService.loginMember(map);
-			logger.info("Welcome! Member_Controller loginCheckMap 로그인 정보 : {}", mVo);
-			if(mVo == null) {
-				rMap.put("isc", "실패");
-			}else {
-				rMap.put("isc", "성공");
-			}
-			
-			return rMap;
+	//로그인 화면으로 이동
+	@RequestMapping(value = "/loginForm.do", method = RequestMethod.GET)
+	public String LoginForm() {
+    	log.info("********* Member_Controller Welcome LoginForm! 로그인 화면으로 이동합니다. *********");
+		return "loginForm";
+	}
+	
+	//TODO 001 로그인 화면에서 비동기식 로그인 정보 확인 Map반환
+	@RequestMapping(value = "/loginCheckMap.do", method = RequestMethod.POST)
+	public @ResponseBody Map<String, String> loginCheckMap(@RequestParam Map<String, Object> map){
+		Map<String, String> rMap = new HashMap<String, String>();
+		log.info("********* Welcome Member_Controller loginCheckMap! : {} *********", map);
+		MemberVo mVo = iService.loginMember(map);
+		log.info("********* Welcome! Member_Controller loginCheckMap 로그인 정보 : {} *********", mVo);
+		if(mVo == null) {
+			rMap.put("isc", "실패");
+		}else {
+			rMap.put("isc", "성공");
 		}
-		
-		//TODO 004 로그인 정보가 Ajax로 확인된 후 @SessionAttribute 에 담고 첫 페이지가 되는 곳으로 이동
-		@PostMapping(value = "/login.do")
-		public String login(@RequestParam Map<String, Object> map, Model model) {
-			logger.info("Welcome! Member_Controller login 로그인 정보 : {}", map);
-			MemberVo mVo = iService.loginMember(map);
-			model.addAttribute("mem", mVo);
-			
-//			return "boardList";
-			return "redirect:/main.do";
-		}
-		
-//		//TODO 006 로그아웃
-//		@RequestMapping(value = "/logout.do", method = RequestMethod.GET)
-//		public String logout( SessionStatus sessionStatus){
-//			logger.info("Welcome! Member_Controller login 로그아웃 전 : {}" );
-//			
-//			sessionStatus.setComplete();
-//			logger.info("Welcome! Member_Controller login 로그아웃 후 : {}");
-//			return "redirect:/loginForm.do";
-//		}	
+		return rMap;
+	}
 	
+	//TODO 002 로그인 정보가 Ajax로 확인된 후 @SessionAttribute 에 담고 첫 페이지가 되는 곳으로 이동
+	@PostMapping(value = "/login.do")
+	public String login(@RequestParam Map<String, Object> map, Model model) {
+		log.info("********* Welcome! Member_Controller login 로그인 정보 : {} *********", map);
+		MemberVo mVo = iService.loginMember(map);
+		model.addAttribute("mem", mVo);
+//		return "boardList";
+		return "redirect:/main.do";
+	}
+	
+	//drag and drop 화면으로 이동
+	@RequestMapping(value = "/dragAndDrop.do", method = RequestMethod.GET)
+	public String dragAndDrop() {
+		log.info("********* Welcome dragAndDrop! dragAndDrop 화면으로 이동합니다. *********");
+		return "dragAndDrop";
+	}
+	@RequestMapping(value = "/dragAndDrop1.do", method = RequestMethod.GET)
+	public String dragAndDrop1() {
+		log.info("Welcome dragAndDrop1! dragAndDrop1 화면으로 이동합니다.");
+		return "dragAndDrop1";
+	}
+	@RequestMapping(value = "/dragAndDrop2.do", method = RequestMethod.GET)
+	public String dragAndDrop2() {
+		log.info("Welcome dragAndDrop2! dragAndDrop2 화면으로 이동합니다.");
+		return "dragAndDrop2";
+	}
+	@RequestMapping(value = "/dragAndDrop3.do", method = RequestMethod.GET)
+	public String dragAndDrop3() {
+		log.info("Welcome dragAndDrop3! dragAndDrop3 화면으로 이동합니다.");
+		return "dragAndDrop3";
+	}
 }

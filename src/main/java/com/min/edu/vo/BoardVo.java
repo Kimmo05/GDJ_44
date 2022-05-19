@@ -2,6 +2,8 @@ package com.min.edu.vo;
 
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -28,9 +30,6 @@ public class BoardVo {
 	private String delflag;
 	private String regdate;
 	
-	/** 파일 변경 여부 */
-	private String changeYn;
+	private List<FileVo> fileList;
 
-	/** 파일 인덱스 리스트 */
-	private List<Long> fileIdxs;
 }

@@ -7,7 +7,6 @@
 	<name>20220508_DemoProject</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
-	
 	<properties>
 		<java-version>11</java-version>
 		<org.springframework-version>4.3.25.RELEASE</org.springframework-version>
@@ -15,10 +14,10 @@
 		<org.slf4j-version>1.7.25</org.slf4j-version>
 		<org.springframework-security>4.2.20.RELEASE</org.springframework-security>
 	</properties>
-	
 	<dependencies>
 		<!-- Spring -->
 		<dependency>
+		
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 			<version>${org.springframework-version}</version>
@@ -36,16 +35,13 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 		
-		
-
-				<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
-			<dependency>
-   				 <groupId>org.projectlombok</groupId>
-    			<artifactId>lombok</artifactId>
-    			<version>1.18.22</version>
-		  		  <scope>provided</scope>
-			</dependency>
-				
+		<!-- lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.12</version>
+			<scope>provided</scope>
+		</dependency>		
 		<!-- AspectJ -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
@@ -121,14 +117,8 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-	<!-- 네이버 로그인 API -->
-		<dependency>
-			<groupId>com.github.scribejava</groupId>
-			<artifactId>scribejava-core</artifactId>
-			<version>2.8.1</version>
-		</dependency>
-	<!-- persitance Layer -->
-		<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc10 -->
+		
+		<!-- persistance layer -->
 		<dependency>
 			<groupId>com.oracle.database.jdbc</groupId>
 			<artifactId>ojdbc10</artifactId>
@@ -164,37 +154,51 @@
 			<artifactId>commons-lang3</artifactId>
 			<version>3.9</version>
 		</dependency>
-		<!--  SpringFramework 비동기식 처리 방법의 반환타입을 자동으로 JSON 으로 처리해주는 것 -->
+<!--  SpringFramework 비동기식 처리 방법의 반환타입을 자동으로 JSON 으로 처리해주는 것 -->
+	      <dependency>
+	          <groupId>com.fasterxml.jackson.core</groupId>
+	          <artifactId>jackson-databind</artifactId>
+	          <version>2.13.2.2</version>
+	      </dependency>
+	      <dependency>
+	          <groupId>com.fasterxml.jackson.core</groupId>
+	          <artifactId>jackson-core</artifactId>
+	          <version>2.13.2</version>
+	      </dependency>
+	      <dependency>
+	          <groupId>org.codehaus.jackson</groupId>
+	          <artifactId>jackson-core-asl</artifactId>
+	          <version>1.9.13</version>
+	      </dependency>
+		<!-- FileUpload에 필요한 라이브러리 -->
+			<dependency>
+			    <groupId>commons-io</groupId>
+			    <artifactId>commons-io</artifactId>
+			    <version>2.2</version>
+			</dependency>
+			<dependency>
+			    <groupId>commons-fileupload</groupId>
+			    <artifactId>commons-fileupload</artifactId>
+			    <version>1.4</version>
+			</dependency>
+		
+		<!-- transaction 처리 -->
 		<dependency>
-		    <groupId>com.fasterxml.jackson.core</groupId>
-		    <artifactId>jackson-databind</artifactId>
-		    <version>2.13.2.2</version>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${org.springframework-version}</version>
 		</dependency>
-		<dependency>
-		    <groupId>com.fasterxml.jackson.core</groupId>
-		    <artifactId>jackson-core</artifactId>
-		    <version>2.13.2</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.codehaus.jackson</groupId>
-		    <artifactId>jackson-core-asl</artifactId>
-		    <version>1.9.13</version>
-		</dependency>
-	
-	<!-- 제이슨 파싱 -->
-		<dependency>
-			<groupId>com.googlecode.json-simple</groupId>
-			<artifactId>json-simple</artifactId>
-			<version>1.1.1</version>
-		</dependency>
-
 		<!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
-			<scope>test</scope>
-		</dependency>        
+		</dependency>      
+		<dependency>
+    		<groupId>org.springframework</groupId>
+    		<artifactId>spring-test</artifactId>
+    		<version>${org.springframework-version}</version>
+		</dependency>  
 	</dependencies>
     <build>
     <finalName>20220508_DemoProject</finalName>
@@ -211,7 +215,6 @@
                     <showDeprecation>true</showDeprecation>
                 </configuration>
             </plugin>
-          
         </plugins>
     </build>
 </project>

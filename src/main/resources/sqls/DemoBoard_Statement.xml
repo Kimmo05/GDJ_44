@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.min.edu.model.mapper.BoardDaoImpl">
+
+<!-- <resultMap type="com.min.edu.BoardVo" id="BoardVo"> -->
+<!-- 	<result column="bno" property="seq"/> -->
+	
+<!-- </resultMap> -->
+
 <!-- 1) 게시글 전체 조회 -->
 <select id="selectBoardAll" resultType="BoardVo">
    SELECT SEQ, ID, TITLE, STEP, "DEPTH" , REFER , DELFLAG , READCOUNT , REGDATE 
@@ -27,40 +33,5 @@ UPDATE DEMOBOARD SET READCOUNT = READCOUNT +1 WHERE SEQ = #{seq}
 INSERT INTO DEMOBOARD (SEQ, ID, TITLE, CONTENT, STEP, "DEPTH", REFER, READCOUNT, DELFLAG, REGDATE)
 	VALUES (#{seq}, #{id}, #{title}, #{content}, 0, 0, (SELECT NVL(MAX(REFER),0)+1 FROM DEMOBOARD), 0, 'N', SYSDATE)
 </insert>
-
-
-
-
-
-<!-- 관리자 페이징 처리 -->
-<select id="adminBoardListRow" parameterType="RowNumVo" resultType="BoardVo">
-	SELECT SEQ, ID, TITLE, REFER, CONTENT, STEP , "DEPTH" , DELFLAG , READCOUNT ,REGDATE 
-	FROM (
-		SELECT ROW_NUMBER() OVER(ORDER BY REFER DESC, STEP) RM,SEQ, ID, TITLE, CONTENT, REFER, STEP , "DEPTH" , DELFLAG , READCOUNT ,REGDATE
-		FROM SPRINGBOARD s 
-	)
-	WHERE RM BETWEEN #{start} AND #{last}
-</select>
-
-<select id="adminBoardListTotal" resultType="java.lang.Integer">
-	SELECT COUNT(*) FROM SPRINGBOARD s
-</select>
-<!-- 사용자 페이징 처리 -->
-<select id="userBoardListRow" parameterType="RowNumVo" resultType="BoardVo">
-	SELECT SEQ, ID, TITLE, REFER, CONTENT, STEP , "DEPTH" , DELFLAG , READCOUNT ,REGDATE 
-	FROM (
-		SELECT ROW_NUMBER() OVER(ORDER BY REFER DESC, STEP) RM,SEQ, ID, CONTENT, TITLE, REFER, STEP , "DEPTH" , DELFLAG , READCOUNT ,REGDATE
-		FROM SPRINGBOARD s 
-		WHERE DELFLAG = 'N'
-	)
-	WHERE RM BETWEEN #{start} AND #{last}
-</select>
-
-<select id="userBoardListTotal" resultType="java.lang.Integer">
-	SELECT COUNT(*) FROM SPRINGBOARD s
-	WHERE DELFLAG = 'N'
-</select>
-
-
 
 </mapper>
