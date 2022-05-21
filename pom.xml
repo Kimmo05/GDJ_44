@@ -182,6 +182,25 @@
 			    <version>1.4</version>
 			</dependency>
 		
+		<!-- 섬네일 이미지 생성 -->
+			<dependency>
+  				  <groupId>net.coobird</groupId>
+   				 <artifactId>thumbnailator</artifactId>
+   				 <version>0.4.17</version>
+			</dependency>
+		<!-- jackson 브라우저로 전송해야하는 데이터를 별도의 객체를 생성해줌-->
+		<dependency>
+   			 <groupId>com.fasterxml.jackson.core</groupId>
+   			 <artifactId>jackson-databind</artifactId>
+    		 <version>2.13.2</version>
+		</dependency>
+		<dependency>
+   			 <groupId>com.fasterxml.jackson.dataformat</groupId>
+   			 <artifactId>jackson-dataformat-xml</artifactId>
+   			 <version>2.13.2</version>
+		</dependency>
+		
+		
 		<!-- transaction 처리 -->
 		<dependency>
 			<groupId>org.springframework</groupId>

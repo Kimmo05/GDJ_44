@@ -30,7 +30,7 @@ private int demoboard_seq;
 private String original_file_name;
 private String stored_file_name;
 private String file_path;
-private String file_type;
+private boolean file_type;
 private String regdate;
 
 }

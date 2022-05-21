@@ -190,6 +190,12 @@
             </ul>
           </div>
           <nav>
+          <!-- 사이드바 시작 부분~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+          <!-- 사이드바 시작 부분~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+          <!-- 사이드바 시작 부분~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+          <!-- 사이드바 시작 부분~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+          <!-- 사이드바 시작 부분~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+          <!-- 사이드바 시작 부분~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
             <div class="main-navbar">
               <div class="left-arrow" id="left-arrow"><i data-feather="arrow-left"></i></div>
               <div id="mainnav">           
@@ -208,7 +214,8 @@
                       <li><a href="dashboard-02.html">Ecommerce</a></li>
                     </ul>
                   </li>
-                
+                  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
                   <li class="sidebar-main-title">
                     <div>
                       <h6>Components             </h6>
@@ -244,12 +251,12 @@
                  
                   <li class="sidebar-main-title">
                     <div>
-                      <h6>Forms</h6>
+                      <h6>FileUpload</h6>
                     </div>
                   </li>
-                  <li class="dropdown">          <a class="nav-link menu-title" href="javascript:void(0)"><i data-feather="sliders"></i><span>Form Controls                </span></a>
+                  <li class="dropdown">          <a class="nav-link menu-title" href="javascript:void(0)"><i data-feather="sliders"></i><span>파일업로드              </span></a>
                     <ul class="nav-submenu menu-content">
-                      <li><a href="form-validation.html">Form Validation</a></li>
+                      <li><a href="./uploadForm.do">연습용 파일업로드</a></li>
                       <li><a href="base-input.html">Base Inputs</a></li>
                       <li><a href="radio-checkbox-control.html">Checkbox & Radio</a></li>
                       <li><a href="input-group.html">Input Groups</a></li>

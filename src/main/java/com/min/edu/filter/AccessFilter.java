@@ -19,7 +19,7 @@ public class AccessFilter implements Filter {
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-		log.info("~~~~~~~~~~~~~~~~~~~~~~~~Filter 작동 시작~~~~~~~~~~~~~~~~~~~~~~~~");
+		log.debug("~~~~~~~~~~~~~~~~~~~~~~~~Filter 작동 시작~~~~~~~~~~~~~~~~~~~~~~~~");
 	}
 
 	@Override
@@ -29,8 +29,8 @@ public class AccessFilter implements Filter {
 		String url = StringUtils.defaultIfEmpty(req.getRequestURL().toString(), "URL 없음");
 		String queryString = StringUtils.defaultString(req.getQueryString(), "");
 		
-		log.info("~~~~~~~~~~~~~~~~~~~~~~~~URL : {}~~~~~~~~~~~~~~~~~~~~~~~~", url);
-		log.info("~~~~~~~~~~~~~~~~~~~~~~~~queryString : {}~~~~~~~~~~~~~~~~~~~~~~~~", queryString);
+		log.debug("~~~~~~~~~~~~~~~~~~~~~~~~URL : {}~~~~~~~~~~~~~~~~~~~~~~~~", url);
+		log.debug("~~~~~~~~~~~~~~~~~~~~~~~~queryString : {}~~~~~~~~~~~~~~~~~~~~~~~~", queryString);
 		
 		chain.doFilter(request, response);
 	}

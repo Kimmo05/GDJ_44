@@ -5,6 +5,49 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<style>
+.uploadResult {
+	width: 100%;
+	background-color: gray;
+}
+
+.uploadResult ul {
+	display: flex;
+	flex-flow: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.uploadResult ul li {
+	list-style: none;
+	padding: 10px;
+}
+
+.uploadResult ul li img {
+	width: 100px;
+}
+</style>
+
+<style>
+.bigPictureWrapper {
+  position: absolute;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  top:0%;
+  width:100%;
+  height:100%;
+  background-color: gray; 
+  z-index: 100;
+}
+
+.bigPicture {
+  position: relative;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>
 
 </head>
 <body>
@@ -15,87 +58,70 @@
 		<%@ include file="./header.jsp"  %>
 		
  <div class="page-body">
-          <div class="container-fluid">
-            <div class="page-header">
-              <div class="row">
-                <div class="col-sm-6">
-                  <h3>Project Create</h3>
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item">Apps                                     </li>
-                    <li class="breadcrumb-item active">Project Create</li>
-                  </ol>
-                </div>
-                <div class="col-sm-6">
-                  <!-- Bookmark Start-->
-                  <div class="bookmark">
-                    <ul>
-                      <li><a href="javascript:void(0)" data-container="body" data-bs-toggle="popover" data-placement="top" title="" data-original-title="Tables"><i data-feather="inbox"></i></a></li>
-                      <li><a href="javascript:void(0)" data-container="body" data-bs-toggle="popover" data-placement="top" title="" data-original-title="Chat"><i data-feather="message-square"></i></a></li>
-                      <li><a href="javascript:void(0)" data-container="body" data-bs-toggle="popover" data-placement="top" title="" data-original-title="Icons"><i data-feather="command"></i></a></li>
-                      <li><a href="javascript:void(0)" data-container="body" data-bs-toggle="popover" data-placement="top" title="" data-original-title="Learning"><i data-feather="layers"></i></a></li>
-                      <li><a href="javascript:void(0)"><i class="bookmark-search" data-feather="star"></i></a>
-                        <form class="form-inline search-form">
-                          <div class="form-group form-control-search">
-                            <input type="text" placeholder="Search..">
-                          </div>
-                        </form>
-                      </li>
-                    </ul>
-                  </div>
-                  <!-- Bookmark Ends-->
-                </div>
-              </div>
-            </div>
+        <div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+
+      <div class="panel-heading">Board Register</div>
+      <!-- /.panel-heading -->
+      <div class="panel-body">
+
+        <form role="form" action="./boardWrite.do" method="post">
+          <div class="form-group">
+            <label>Title</label> <input class="form-control" name='title'>
           </div>
-          <!-- Container-fluid starts-->
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-sm-12">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="form theme-form">
-                      <div class="row">
-                        <div class="col">
-                          <div class="mb-3">
-                            <label>Project Title</label>
-                            <input class="form-control" type="text" placeholder="Project name *">
-                          </div>
-                        </div>
-                      </div>
-                   
-                     
-                    
-                      <div class="row">
-                        <div class="col">
-                          <div class="mb-3">
-                            <label>Enter some Details</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea4" rows="3"></textarea>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col">
-                          <div class="mb-3">
-                            <label>Upload project file</label>
-                            <form class="dropzone" id="singleFileUpload" action="/upload.php">
-                              <div class="dz-message needsclick"><i class="icon-cloud-up"></i>
-                                <h6>Drop files here or click to upload.</h6><span class="note needsclick">(This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.)</span>
-                              </div>
-                            </form>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col">
-                          <div class="text-end"><a class="btn btn-secondary me-3" href="#">Add</a><a class="btn btn-danger" href="#">Cancel</a></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+
+          <div class="form-group">
+            <label>Text area</label>
+            <textarea class="form-control" rows="3" name='content'></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Writer</label> <input class="form-control" name='writer'>
+          </div>
+          <button type="submit" class="btn btn-default">Submit
+            Button</button>
+          <button type="reset" class="btn btn-default">Reset Button</button>
+        </form>
+
+      </div>
+      <!--  end panel-body -->
+
+    </div>
+    <!--  end panel-body -->
+  </div>
+  <!-- end panel -->
+</div>
+<!-- /.row -->
+
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+
+      <div class="panel-heading">File Attach</div>
+      <!-- /.panel-heading -->
+      <div class="panel-body">
+        <div class="form-group uploadDiv">
+            <input type="file" name='uploadFile' multiple>
+        </div>
+        
+        <div class='uploadResult'> 
+          <ul>
+          
+          </ul>
+        </div>
+        
+        
+      </div>
+      <!--  end panel-body -->
+
+    </div>
+    <!--  end panel-body -->
+  </div>
+  <!-- end panel -->
+</div>
+<!-- /.row -->
           </div>
           <!-- Container-fluid Ends-->
         </div>

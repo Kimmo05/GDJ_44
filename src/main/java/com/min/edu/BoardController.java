@@ -68,7 +68,8 @@ public class BoardController {
 	@RequestMapping(value = "/boardWriteForm.do", method = RequestMethod.GET)
 	public String boardWriteForm() {
 		log.info("********* Welcome Board_Controller boardWrite! 게시글 새글 등록 화면으로 이동합니다. *********");
-		return "boardWrite";
+//		return "boardWrite";
+		return "register";
 	}
    // 3-2) 게시글 새글 등록
 //	 @RequestMapping(value = "/boardWrite.do", method = {RequestMethod.GET, RequestMethod.POST})
