@@ -50,7 +50,39 @@ public class SpringMemberTest {
 		System.out.println("로그인한 회원정보 : "+loginVo);
 	}
 	
+	//@Test
+		//1)일반회원 로그인(아이디,비밀번호,사용여부N) 
+		public void loginTra() {
+			Map<String, Object> map = new HashMap<String, Object>();
+			log.info("＃＃＃＃＃＃＃＃＃ DEMOMEMBER_TEST_01 loginMember Test 실행 ＃＃＃＃＃＃＃＃＃");
+			map.put("id", "admin");
+			map.put("pw", "1234");
+			MemberVo loginVo = mDao.loginTra(map);
+			log.info("＃＃＃＃＃＃＃＃＃ DEMOMEMBER_TEST_01 loginMember Test  "
+					+ "로그인한 회원 정보 :"
+					+ " {} ＃＃＃＃＃＃＃＃＃", loginVo);
+			System.out.println("로그인한 회원정보 : "+loginVo);
+		}
+	
 	@Test
+		//2)일반회원 회원가입
+	    public void traSignUp() {
+		log.info("MemberTest traSignUp");
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("id","test03");
+		map.put("pw","1234");
+		map.put("name","test");
+		map.put("email","test@naver.com");
+		map.put("phone","test");
+		map.put("birth","test");
+		map.put("profile","test");
+		int n = mDao.traSignUp(map);
+		log.info("＃＃＃＃＃＃＃＃＃ DEMOMEMBER_TEST_01 traSigntra Test  "
+				+ "회원가입 성공 :"
+				+ " {} ＃＃＃＃＃＃＃＃＃", n);
+	}
+	
+	//@Test
 	//3) 회원가입
 	public void signupMember() {
 		log.info("MemberTest insertMemberTest");

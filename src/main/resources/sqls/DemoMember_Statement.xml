@@ -1,10 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.min.edu.model.mapper.MemberDaoImpl">
+
+<resultMap id="TraResult" type="MemberVo">	
+   <result column="Tra_id" property="id" />	
+   <result column="Tra_pw" property="pw" />	
+	<result column="Tra_name" property="name" />	
+	<result column="Tra_email" property="email" />		
+	<result column="Tra_birth" property="birth" />		
+	<result column="Tra_phone" property="phone" />		
+	<result column="Tra_auth" property="auth" />		
+	<result column="Tra_profile" property="profile" />		
+	<result column="Tra_delflag" property="delflag" />		
+	<result column="Tra_regdate" property="regdate" />				
+</resultMap>
+
+<resultMap id="InsResult" type="MemberVo">	
+   <result column="Ins_id" property="id" />	
+   <result column="Ins_pw" property="pw" />	
+	<result column="Ins_name" property="name" />	
+	<result column="Ins_email" property="email" />		
+	<result column="Ins_birth" property="birth" />		
+	<result column="Ins_phone" property="phone" />		
+	<result column="Ins_auth" property="auth" />	
+	<result column="Ins_bank" property="bank" />
+	<result column="Ins_banknum" property="banknum" />					
+	<result column="Ins_profile" property="profile" />		
+	<result column="Ins_delflag" property="delflag" />		
+	<result column="Ins_regdate" property="regdate" />				
+</resultMap>
+
 <!-- 1) 로그인 -->
-<select id="loginMember" parameterType="java.util.Map" resultType="MemberVo">
+<select id="loginMember"  parameterType="java.util.Map" resultType="MemberVo">
 	SELECT ID, NAME, EMAIL, PHONE, AUTH, REGDATE FROM DEMOMEMBER WHERE ID=#{id} AND PW=#{pw} AND DELFLAG='N'
 </select>
 
+<!-- 일반회원 로그인 -->
+<select id="loginTra" resultMap="TraResult" parameterType="map" resultType="MemberVo">
+SELECT  TRA_ID ,
+		TRA_NAME ,
+		TRA_EMAIL ,
+		TRA_PHONE ,
+		TRA_BIRTH ,
+		TRA_PROFILE ,
+		TRA_AUTH ,
+		TRA_LIKE ,
+		TRA_PREFER,
+		TRA_REGDATE ,
+		TRA_DELFLAG 
+	FROM TRAINEE 
+		WHERE TRA_ID=#{id}
+		AND TRA_DELFLAG ='N'
+</select>
+<!-- 일반회원 회원가입 -->
+<insert id="traSignUp"  parameterType="map" >
+INSERT INTO TRAINEE
+(TRA_ID,
+TRA_PW,
+TRA_NAME,
+TRA_EMAIL,
+TRA_PHONE, 
+TRA_BIRTH,
+TRA_PROFILE,
+TRA_AUTH,
+TRA_REGDATE, 
+TRA_DELFLAG)
+VALUES(#{id},#{pw}, #{name}, 
+#{email}, #{phone}, 
+#{birth}, #{profile}, 'ROLE_USER', 
+SYSDATE,
+'N')
+</insert>
+
+<!-- 강사 로그인 -->
+<select id="loginIns" resultMap="InsResult" parameterType="map" resultType="MemberVo">
+INSERT INTO INSTRUCTOR
+(INS_ID, INS_PW,INS_NAME,
+INS_EMAIL,INS_PHONE,INS_BIRTH,
+INS_PROFILE,
+INS_AUTH,
+INS_REGDATE,
+INS_BANKNUM, 
+INS_BANK, 
+INS_DELFLAG)
+VALUES(
+#{id},#{pw}, #{name}, 
+#{email}, #{phone}, 
+#{birth}, 
+#{profile},
+'ROLE_INSTRUCTOR',
+SYSDATE,
+#{banknum},
+#{bank},
+'N');
+</select>
+<!-- 강사 회원가입 -->
+<insert id="InsSignUp"  parameterType="map">
+INSERT INTO INSTRUCTOR
+(INS_ID, 
+INS_PW,
+INS_NAME,
+INS_EMAIL,
+INS_PHONE,
+INS_BIRTH,
+INS_PROFILE,
+INS_AUTH,
+INS_REGDATE,
+INS_BANKNUM, 
+INS_BANK, 
+INS_DELFLAG)
+VALUES(#{id},#{pw}, #{name}, 
+#{email}, #{phone}, 
+#{birth}, #{profile}, 'ROLE_INSTROCTUR', 
+SYSDATE,
+#{banknum},#{bank}
+'N')
+</insert>
 
 </mapper>

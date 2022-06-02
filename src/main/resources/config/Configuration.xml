@@ -4,6 +4,7 @@
 	<typeAliases>
 		<typeAlias type="com.min.edu.vo.MemberVo" alias="MemberVo"/>
 		<typeAlias type="com.min.edu.vo.BoardVo" alias="BoardVo"/>
+		<typeAlias type="java.util.Map" alias="map"/>
 <!-- 		<typeAlias type="com.min.edu.vo.FileVo" alias="FileVo"/> -->
 	</typeAliases>
 

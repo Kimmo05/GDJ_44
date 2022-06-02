@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0">
-  <display-name>20220508_DemoProject</display-name>
+  <display-name>DemoProject</display-name>
   <welcome-file-list>
-    <welcome-file>main.do</welcome-file>
+    <welcome-file>/user/main.do</welcome-file>
   </welcome-file-list>
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>
 			/WEB-INF/spring/appServlet/root-context.xml
 			/WEB-INF/spring/appServlet/file-context.xml
+				/WEB-INF/spring/appServlet/spring-security.xml
 		</param-value>
   </context-param>
   <listener>
@@ -52,6 +53,28 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
     <filter-name>loggerFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+  <!-- security 부분 -->
+  	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter>
+		<filter-name>UsernamePasswordAuthenticationFilter</filter-name>
+		<filter-class>org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>UsernamePasswordAuthenticationFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<listener>
+	    <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+	</listener>
+  
+  
   <error-page>
     <error-code>404</error-code>
     <location>/WEB-INF/views/errorPage/404.html</location>

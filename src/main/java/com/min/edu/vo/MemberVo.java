@@ -17,9 +17,15 @@ public class MemberVo {
 	private String pw;
 	private String name;
 	private String email;
+	private String birth;
 	private String phone;
 	private String auth;
+	private String profile;
+	private String milage;
+	private String bank;
+	private String banknum;
 	private String delflag;
 	private String regdate;
+	
 
 }

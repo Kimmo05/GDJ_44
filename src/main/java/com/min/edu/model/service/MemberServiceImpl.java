@@ -23,4 +23,29 @@ public class MemberServiceImpl implements IMemberService{
 		return dao.loginMember(map);
 	}
 
+	@Override
+	public MemberVo loginTra(Map<String, Object> map) {
+		log.info("MemberVo loginTra");
+		return dao.loginTra(map);
+	}
+
+	@Override
+	public int traSignUp(Map<String, Object> map) {
+		log.info("MemberVo traSignUp");
+		return dao.traSignUp(map);
+	}
+
+	@Override
+	public MemberVo loginIns(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return dao.loginIns(map);
+	}
+
+	@Override
+	public int InsSignUp(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return dao.InsSignUp(map);
+	}
+
+
 }

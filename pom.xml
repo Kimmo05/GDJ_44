@@ -3,8 +3,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.min.edu</groupId>
-	<artifactId>20220508_DemoProject</artifactId>
-	<name>20220508_DemoProject</name>
+	<artifactId>DemoProject</artifactId>
+	<name>DemoProject</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
@@ -12,9 +12,37 @@
 		<org.springframework-version>4.3.25.RELEASE</org.springframework-version>
 		<org.aspectj-version>1.9.6</org.aspectj-version>
 		<org.slf4j-version>1.7.25</org.slf4j-version>
-		<org.springframework-security>4.2.20.RELEASE</org.springframework-security>
+		<org.springframework-security>4.2.3.RELEASE</org.springframework-security>
 	</properties>
 	<dependencies>
+	<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>${org.springframework-security}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+		<version>${org.springframework-security}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${org.springframework-security}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+				<version>${org.springframework-security}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+				<version>${org.springframework-security}</version>
+		</dependency>
+	
+	
+	
 		<!-- Spring -->
 		<dependency>
 		
@@ -220,7 +248,7 @@
 		</dependency>  
 	</dependencies>
     <build>
-    <finalName>20220508_DemoProject</finalName>
+    <finalName>DemoProject</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

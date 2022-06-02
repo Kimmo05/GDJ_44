@@ -20,6 +20,8 @@
             </div>
           </div>
         </footer>
+      </div>
+    </div>
          <!-- latest jquery-->
     <script src="./assets/js/jquery-3.5.1.min.js"></script>
     <!-- feather icon js-->
